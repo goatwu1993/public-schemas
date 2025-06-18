@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "dependabot-automerge": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "default": true
+        },
+        "default_merge_method": {
+          "type": "string",
+          "enum": ["squash", "merge", "rebase"],
+          "default": "squash"
+        },
+        "default_allowed_bump_type": {
+          "type": "string",
+          "enum": ["major", "minor", "patch"],
+          "default": "patch"
+        },
+        "packages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "merge_method": {
+                "type": "string",
+                "enum": ["squash", "merge", "rebase"]
+              },
+              "allowed_bump_type": {
+                "type": "string",
+                "enum": ["major", "minor", "patch"]
+              }
+            },
+            "required": ["name"],
+            "additionalProperties": false
+          },
+          "default": []
+        }
+      },
+      "required": ["enabled", "default_merge_method", "default_allowed_bump_type", "packages"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["dependabot-automerge"],
+  "additionalProperties": false
+}

@@ -2,19 +2,19 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
-    "dependabot-automerge": {
+    "dependabotAutomerge": {
       "type": "object",
       "properties": {
         "enabled": {
           "type": "boolean",
           "default": true
         },
-        "default_merge_method": {
+        "mergeMethod": {
           "type": "string",
           "enum": ["squash", "merge", "rebase"],
           "default": "squash"
         },
-        "default_allowed_bump_type": {
+        "allowedBumpType": {
           "type": "string",
           "enum": ["major", "minor", "patch"],
           "default": "patch"
@@ -27,11 +27,11 @@
               "name": {
                 "type": "string"
               },
-              "merge_method": {
+              "mergeMethod": {
                 "type": "string",
                 "enum": ["squash", "merge", "rebase"]
               },
-              "allowed_bump_type": {
+              "allowedBumpType": {
                 "type": "string",
                 "enum": ["major", "minor", "patch"]
               }
@@ -42,10 +42,10 @@
           "default": []
         }
       },
-      "required": ["enabled", "default_merge_method", "default_allowed_bump_type", "packages"],
+      "required": ["enabled", "mergeMethod", "allowedBumpType", "packages"],
       "additionalProperties": false
     }
   },
-  "required": ["dependabot-automerge"],
+  "required": ["dependabotAutomerge"],
   "additionalProperties": false
 }

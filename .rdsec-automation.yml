@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/goatwu1993/public-schemas/refs/heads/main/rdsec-automation.json
+dependabotAutomerge:
+  enabled: true
+  mergeMethod: "squash"
+  allowedBumpType: "minor"
+  packages:
+    # group
+    - name: "vitest*"
+    - name: "esbuild"
+    - name: "@types/node"
+    - name: "nock"
+    - name: "zod"
+    - name: "@biomejs/biome"

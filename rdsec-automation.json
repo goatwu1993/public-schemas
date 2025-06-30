@@ -1,51 +1,71 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "dependabotAutomerge": {
-      "type": "object",
-      "properties": {
-        "enabled": {
-          "type": "boolean",
-          "default": true
-        },
-        "mergeMethod": {
-          "type": "string",
-          "enum": ["squash", "merge", "rebase"],
-          "default": "squash"
-        },
-        "allowedBumpType": {
-          "type": "string",
-          "enum": ["major", "minor", "patch"],
-          "default": "patch"
-        },
-        "packages": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "mergeMethod": {
-                "type": "string",
-                "enum": ["squash", "merge", "rebase"]
-              },
-              "allowedBumpType": {
-                "type": "string",
-                "enum": ["major", "minor", "patch"]
-              }
-            },
-            "required": ["name"],
-            "additionalProperties": false
-          },
-          "default": []
-        }
-      },
-      "required": ["enabled", "mergeMethod", "allowedBumpType", "packages"],
-      "additionalProperties": false
-    }
-  },
-  "required": ["dependabotAutomerge"],
-  "additionalProperties": false
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"dependabotAutomerge": {
+			"type": "object",
+			"properties": {
+				"enabled": {
+					"type": "boolean",
+					"default": true
+				},
+				"mergeMethod": {
+					"type": "string",
+					"enum": ["squash", "merge", "rebase"],
+					"default": "squash"
+				},
+				"allowedBumpType": {
+					"type": "string",
+					"enum": ["major", "minor", "patch"],
+					"default": "patch"
+				},
+				"directories": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"name": {
+								"type": "string"
+							},
+							"allowedBumpType": {
+								"type": "string",
+								"enum": ["major", "minor", "patch"]
+							},
+							"mergeMethod": {
+								"type": "string",
+								"enum": ["squash", "merge", "rebase"]
+							},
+							"packages": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"name": {
+											"type": "string"
+										},
+										"mergeMethod": {
+											"type": "string",
+											"enum": ["squash", "merge", "rebase"]
+										},
+										"allowedBumpType": {
+											"type": "string",
+											"enum": ["major", "minor", "patch"]
+										}
+									},
+									"required": ["name"],
+									"additionalProperties": false
+								},
+								"default": []
+							}
+						},
+						"required": ["name"]
+					}
+				}
+			},
+			"required": ["enabled", "mergeMethod", "allowedBumpType", "directories"],
+			"additionalProperties": false
+		}
+	},
+	"required": ["dependabotAutomerge"],
+	"additionalProperties": false
 }
